@@ -61,6 +61,7 @@
 						companyName: 'DefaultCompany',
 						productName: 'MTVS-strata-unity',
 						productVersion: '0.1.0',
+						cacheControl: () => 'no-store',
 						showBanner
 					},
 					(value) => (progress = value)

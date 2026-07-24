@@ -15,6 +15,7 @@ declare global {
 		companyName: string;
 		productName: string;
 		productVersion: string;
+		cacheControl?: (url: string) => 'must-revalidate' | 'immutable' | 'no-store';
 		showBanner: (message: string, type: 'error' | 'warning') => void;
 	};
 
