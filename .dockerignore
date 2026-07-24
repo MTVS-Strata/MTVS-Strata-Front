@@ -1,0 +1,11 @@
+node_modules
+.svelte-kit
+.git
+.agents
+.vscode
+.idea
+vite-dev.out.log
+vite-dev.err.log
+npm-debug.log*
+Dockerfile
+.dockerignore
