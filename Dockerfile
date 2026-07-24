@@ -11,6 +11,7 @@ RUN npm run build
 FROM node:24.18.0-alpine AS runtime
 
 WORKDIR /app
+
 ENV NODE_ENV=production
 
 COPY --from=build /app/package.json /app/package-lock.json ./
@@ -19,6 +20,6 @@ COPY --from=build /app/.svelte-kit ./.svelte-kit
 COPY --from=build /app/static ./static
 COPY --from=build /app/vite.config.ts ./vite.config.ts
 
-EXPOSE 5173
+EXPOSE 80
 
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "80"]
