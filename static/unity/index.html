@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Rollaball</title>
+    <title>Unity Web Player | MTVS-strata-unity</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=1280 height=720 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Rollaball</div>
+        <div id="unity-build-title">MTVS-strata-unity</div>
       </div>
     </div>
     <script>
@@ -52,16 +52,16 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/result.loader.js";
+      var loaderUrl = buildUrl + "/4a561a9f732daef2326d8743b13a7d99.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/result.data.br",
-        frameworkUrl: buildUrl + "/result.framework.js.br",
-        codeUrl: buildUrl + "/result.wasm.br",
+        dataUrl: buildUrl + "/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb",
+        frameworkUrl: buildUrl + "/ab21016636a7e4b9f88cdc8797bb10bb.framework.js.unityweb",
+        codeUrl: buildUrl + "/f28152507e51f8ef8b3ff9dadd75033d.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "arduinilive.com",
-        productName: "Rollaball",
-        productVersion: "1.0.0",
+        companyName: "DefaultCompany",
+        productName: "MTVS-strata-unity",
+        productVersion: "0.1.0",
         showBanner: unityShowBanner,
         // errorHandler: function(err, url, line) {
         //    alert("error " + err + " occurred at line " + line);
@@ -104,8 +104,8 @@
 
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = "1280px";
+        canvas.style.height = "720px";
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";

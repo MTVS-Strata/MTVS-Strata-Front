@@ -9,12 +9,19 @@ function unityWebGLHeaders(): Plugin {
 	const middleware: Connect.NextHandleFunction = (req, res, next) => {
 		const pathname = (req as { url?: string }).url?.split('?', 1)[0] ?? '';
 
-		if (pathname.startsWith('/unity/Build/') && pathname.endsWith('.br')) {
-			res.setHeader('Content-Encoding', 'br');
+		if (pathname.startsWith('/unity/Build/')) {
+			if (pathname.endsWith('.br')) {
+				res.setHeader('Content-Encoding', 'br');
+			} else if (pathname.endsWith('.unityweb')) {
+				res.setHeader('Content-Encoding', 'gzip');
+			} else {
+				next();
+				return;
+			}
 
-			if (pathname.endsWith('.wasm.br')) {
+			if (pathname.endsWith('.wasm.br') || pathname.endsWith('.wasm.unityweb')) {
 				res.setHeader('Content-Type', 'application/wasm');
-			} else if (pathname.endsWith('.js.br')) {
+			} else if (pathname.endsWith('.js.br') || pathname.endsWith('.js.unityweb')) {
 				res.setHeader('Content-Type', 'application/javascript');
 			} else {
 				res.setHeader('Content-Type', 'application/octet-stream');

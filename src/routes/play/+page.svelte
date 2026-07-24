@@ -44,7 +44,7 @@
 
 		async function startUnity() {
 			try {
-				await loadScript(`${buildUrl}/result.loader.js`);
+				await loadScript(`${buildUrl}/4a561a9f732daef2326d8743b13a7d99.loader.js`);
 
 				if (!window.createUnityInstance) {
 					throw new Error('Unity 초기화 함수를 찾을 수 없습니다.');
@@ -54,13 +54,13 @@
 					canvas,
 					{
 						arguments: [],
-						dataUrl: `${buildUrl}/result.data.br`,
-						frameworkUrl: `${buildUrl}/result.framework.js.br`,
-						codeUrl: `${buildUrl}/result.wasm.br`,
+						dataUrl: `${buildUrl}/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb`,
+						frameworkUrl: `${buildUrl}/ab21016636a7e4b9f88cdc8797bb10bb.framework.js.unityweb`,
+						codeUrl: `${buildUrl}/f28152507e51f8ef8b3ff9dadd75033d.wasm.unityweb`,
 						streamingAssetsUrl: '/unity/StreamingAssets',
-						companyName: 'arduinilive.com',
-						productName: 'Rollaball',
-						productVersion: '1.0.0',
+						companyName: 'DefaultCompany',
+						productName: 'MTVS-strata-unity',
+						productVersion: '0.1.0',
 						showBanner
 					},
 					(value) => (progress = value)
@@ -91,20 +91,20 @@
 </script>
 
 <svelte:head>
-	<title>Rollaball</title>
+	<title>MTVS Strata</title>
 	<meta
 		name="description"
-		content="Play Rollaball in your browser"
+		content="Play MTVS Strata in your browser"
 	/>
 </svelte:head>
 
 <main class="game-page">
-	<section class="game-shell" aria-label="Rollaball Unity WebGL player">
+	<section class="game-shell" aria-label="MTVS Strata Unity WebGL player">
 		<canvas bind:this={canvas} id="unity-canvas" tabindex="0"></canvas>
 
 		{#if loading}
 			<div class="loading" role="status" aria-live="polite">
-				<div class="loading-title">Rollaball 불러오는 중</div>
+				<div class="loading-title">MTVS Strata 불러오는 중</div>
 				<div class="progress-track">
 					<div class="progress-bar" style:width={`${Math.round(progress * 100)}%`}></div>
 				</div>

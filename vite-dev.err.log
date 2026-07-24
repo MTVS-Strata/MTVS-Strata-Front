@@ -1,0 +1,24 @@
+[2m오후 3:28:34[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mFailed to download file /unity/Build/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb
+[2m오후 3:28:36[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'subarray')
+[39m > ../../../../../unity/Build/4a561a9f732daef2326d8743b13a7d99.loader.js:1:46386
+
+[2m오후 3:29:35[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mFailed to download file /unity/Build/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb
+[2m오후 3:29:37[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'subarray')
+[39m > ../../../../../unity/Build/4a561a9f732daef2326d8743b13a7d99.loader.js:1:46386
+
+[2m오후 3:29:55[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mFailed to download file /unity/Build/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb
+[2m오후 3:29:57[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mFailed to download file /unity/Build/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb
+[2m오후 3:29:58[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mFailed to download file /unity/Build/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb
+[2m오후 3:30:00[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'subarray')
+[39m > ../../../../../unity/Build/4a561a9f732daef2326d8743b13a7d99.loader.js:1:46386
+
+[2m오후 3:30:45[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mFailed to download file /unity/Build/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb
+[2m오후 3:30:46[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'subarray')
+[39m > ../../../../../unity/Build/4a561a9f732daef2326d8743b13a7d99.loader.js:1:46386
+
+[2m오후 3:30:59[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [2m[console.error] [22mFailed to download file /unity/Build/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb
+[2m오후 3:31:00[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'subarray')
+[39m > ../../../../../unity/Build/4a561a9f732daef2326d8743b13a7d99.loader.js:1:46386
+
+[2m오후 3:32:21[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mShader 'Hidden/Universal Render Pipeline/Edge Adaptive Spatial Upsampling' is not supported (in 'Blit FSR Upscaling'). PostProcessing render passes will not execute.
+
