@@ -5,6 +5,16 @@ import { defineConfig } from 'vitest/config';
 import {svelteTesting} from '@testing-library/svelte/vite'
 
 
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  preview: {
+    allowedHosts: [
+      'www.big-integer.cloud'
+    ]
+  }
+})
+
 function unityWebGLHeaders(): Plugin {
 	const middleware: Connect.NextHandleFunction = (req, res, next) => {
 		const pathname = (req as { url?: string }).url?.split('?', 1)[0] ?? '';
