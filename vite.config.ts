@@ -7,7 +7,8 @@ import {svelteTesting} from '@testing-library/svelte/vite'
 export default defineConfig({
   preview: {
     allowedHosts: [
-      'www.big-integer.cloud'
+        'www.big-integer.cloud',
+		'www.h-our.shop'
     ]
   }
 })
