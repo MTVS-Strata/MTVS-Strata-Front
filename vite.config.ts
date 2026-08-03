@@ -4,9 +4,6 @@ import { type Connect, type Plugin } from 'vite';
 import { defineConfig } from 'vitest/config';
 import {svelteTesting} from '@testing-library/svelte/vite'
 
-
-import { defineConfig } from 'vite'
-
 export default defineConfig({
   preview: {
     allowedHosts: [
