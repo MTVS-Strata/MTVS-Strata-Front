@@ -59,6 +59,9 @@ export default defineConfig({
 			adapter: adapter()
 		})
 	], 
+	preview: {
+		allowedHosts: ['www.h-our.shop']
+	},
 	test: {
     environment: 'jsdom',
     setupFiles: ['./vitest-setup.js'],
