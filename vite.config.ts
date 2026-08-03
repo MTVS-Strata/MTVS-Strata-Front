@@ -4,6 +4,14 @@ import { type Connect, type Plugin } from 'vite';
 import { defineConfig } from 'vitest/config';
 import {svelteTesting} from '@testing-library/svelte/vite'
 
+export default defineConfig({
+  preview: {
+    allowedHosts: [
+        'www.big-integer.cloud',
+		'www.h-our.shop'
+    ]
+  }
+})
 
 function unityWebGLHeaders(): Plugin {
 	const middleware: Connect.NextHandleFunction = (req, res, next) => {
