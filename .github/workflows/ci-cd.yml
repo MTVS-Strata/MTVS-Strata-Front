@@ -14,12 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     outputs:
       tag_name: ${{ steps.tag_version.outputs.new_version }}
+
     steps:
-      - uses: actions/checkout@v6
+      - name: 저장소 checkout
+        uses: actions/checkout@v6
         with:
           lfs: true
+          fetch-depth: 0
 
       - name: 버전 태그 생성
         id: tag_version
@@ -38,22 +42,77 @@ jobs:
     name: Docker 이미지 빌드 및 푸시
     runs-on: ubuntu-latest
     needs: tagging
+
     permissions:
       contents: read
       packages: write
+
     steps:
       - name: 저장소 checkout
         uses: actions/checkout@v6
         with:
           lfs: true
 
-      - name: Git LFS 파일 확인
+      - name: Git LFS 파일 다운로드
         run: |
+          git lfs install
           git lfs pull
-          test -f static/unity/Build/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb
-          test "$(wc -c < static/unity/Build/1f099c344cd315af30ffc3f04dd0b3ed.data.unityweb)" -gt 1000000
-          test "$(wc -c < static/unity/Build/ab21016636a7e4b9f88cdc8797bb10bb.framework.js.unityweb)" -gt 1000
-          test "$(wc -c < static/unity/Build/f28152507e51f8ef8b3ff9dadd75033d.wasm.unityweb)" -gt 1000000
+
+      - name: Unity WebGL 파일 확인
+        run: |
+          echo "===== Git LFS files ====="
+          git lfs ls-files
+
+          echo "===== Unity Build files ====="
+          ls -lah static/unity/Build/
+
+          DATA_FILE=$(find static/unity/Build -maxdepth 1 -type f -name "*.data.unityweb" | head -n 1)
+          FRAMEWORK_FILE=$(find static/unity/Build -maxdepth 1 -type f -name "*.framework.js.unityweb" | head -n 1)
+          WASM_FILE=$(find static/unity/Build -maxdepth 1 -type f -name "*.wasm.unityweb" | head -n 1)
+
+          echo "DATA_FILE=$DATA_FILE"
+          echo "FRAMEWORK_FILE=$FRAMEWORK_FILE"
+          echo "WASM_FILE=$WASM_FILE"
+
+          if [ -z "$DATA_FILE" ]; then
+            echo "ERROR: .data.unityweb 파일이 없습니다."
+            exit 1
+          fi
+
+          if [ -z "$FRAMEWORK_FILE" ]; then
+            echo "ERROR: .framework.js.unityweb 파일이 없습니다."
+            exit 1
+          fi
+
+          if [ -z "$WASM_FILE" ]; then
+            echo "ERROR: .wasm.unityweb 파일이 없습니다."
+            exit 1
+          fi
+
+          DATA_SIZE=$(wc -c < "$DATA_FILE")
+          FRAMEWORK_SIZE=$(wc -c < "$FRAMEWORK_FILE")
+          WASM_SIZE=$(wc -c < "$WASM_FILE")
+
+          echo "DATA size: $DATA_SIZE bytes"
+          echo "FRAMEWORK size: $FRAMEWORK_SIZE bytes"
+          echo "WASM size: $WASM_SIZE bytes"
+
+          if [ "$DATA_SIZE" -le 1000000 ]; then
+            echo "ERROR: data.unityweb 파일이 너무 작습니다. LFS pointer 파일일 가능성이 있습니다."
+            exit 1
+          fi
+
+          if [ "$FRAMEWORK_SIZE" -le 1000 ]; then
+            echo "ERROR: framework.js.unityweb 파일이 너무 작습니다. LFS pointer 파일일 가능성이 있습니다."
+            exit 1
+          fi
+
+          if [ "$WASM_SIZE" -le 1000000 ]; then
+            echo "ERROR: wasm.unityweb 파일이 너무 작습니다. LFS pointer 파일일 가능성이 있습니다."
+            exit 1
+          fi
+
+          echo "Unity WebGL 파일 검증 성공"
 
       - name: GHCR 로그인
         uses: docker/login-action@v4
