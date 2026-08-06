@@ -59,7 +59,10 @@ export default defineConfig({
 		})
 	], 
 	preview: {
-		allowedHosts: ['www.h-our.shop']
+		allowedHosts: [
+			'www.h-our.shop',
+			'www.mtvs-strata.cloud'
+		]
 	},
 	test: {
     environment: 'jsdom',

@@ -44,7 +44,7 @@
 
 		async function startUnity() {
 			try {
-				await loadScript(`${buildUrl}/9f717a51ca3b5f48b2747c468f2a97c1.loader.js`);
+				await loadScript(`${buildUrl}/d093a2183173a1567e897101a023ba02.loader.js`);
 
 				if (!window.createUnityInstance) {
 					throw new Error('Unity 초기화 함수를 찾을 수 없습니다.');
@@ -54,9 +54,9 @@
 					canvas,
 					{
 						arguments: [],
-						dataUrl: `${buildUrl}/dc8c652b0837160d55f3d2993142e20c.data.unityweb`,
-						frameworkUrl: `${buildUrl}/ce916b3a68321de639e63b25791040d3.framework.js.unityweb`,
-						codeUrl: `${buildUrl}/f6f7b869294238d22a8fc0e78ab7d67c.wasm.unityweb`,
+						dataUrl: `${buildUrl}/5ee5438b7a5a6cba88ef9bfa54337e73.data.unityweb`,
+						frameworkUrl: `${buildUrl}/04dc4c27af15047100f3b53d2e3343b2.framework.js.unityweb`,
+						codeUrl: `${buildUrl}/76cf81a7db5d96fe4e7185587f80fca2.wasm.unityweb`,
 						streamingAssetsUrl: '/unity/StreamingAssets',
 						companyName: 'DefaultCompany',
 						productName: 'MTVS-strata-unity',
