@@ -136,6 +136,7 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
+
   deploy:
     runs-on: self-hosted
     needs: build-push-image
