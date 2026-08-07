@@ -9,6 +9,19 @@
 	let unityInstance = $state<UnityInstance | null>(null);
 
 	const buildUrl = '/unity/Build';
+	const loaderUrl = `${buildUrl}/f47b45529546eed34e6291e876599706.loader.js`;
+	const unityConfig: UnityConfig = {
+		arguments: [],
+		dataUrl: `${buildUrl}/f60458edd41689ef6dcd069bdc83b519.data.unityweb`,
+		frameworkUrl: `${buildUrl}/adf3106f849c32019b6953a80173eb90.framework.js.unityweb`,
+		codeUrl: `${buildUrl}/c3264b4f4a89b3257a340c65ee73af06.wasm.unityweb`,
+		streamingAssetsUrl: '/unity/StreamingAssets',
+		companyName: 'DefaultCompany',
+		productName: 'MTVS-strata-unity',
+		productVersion: '0.1.0',
+		cacheControl: () => 'no-store',
+		showBanner
+	};
 
 	function loadScript(src: string) {
 		return new Promise<void>((resolve, reject) => {
@@ -44,7 +57,7 @@
 
 		async function startUnity() {
 			try {
-				await loadScript(`${buildUrl}/d093a2183173a1567e897101a023ba02.loader.js`);
+				await loadScript(loaderUrl);
 
 				if (!window.createUnityInstance) {
 					throw new Error('Unity 초기화 함수를 찾을 수 없습니다.');
@@ -52,18 +65,7 @@
 
 				const instance = await window.createUnityInstance(
 					canvas,
-					{
-						arguments: [],
-						dataUrl: `${buildUrl}/5ee5438b7a5a6cba88ef9bfa54337e73.data.unityweb`,
-						frameworkUrl: `${buildUrl}/04dc4c27af15047100f3b53d2e3343b2.framework.js.unityweb`,
-						codeUrl: `${buildUrl}/76cf81a7db5d96fe4e7185587f80fca2.wasm.unityweb`,
-						streamingAssetsUrl: '/unity/StreamingAssets',
-						companyName: 'DefaultCompany',
-						productName: 'MTVS-strata-unity',
-						productVersion: '0.1.0',
-						cacheControl: () => 'no-store',
-						showBanner
-					},
+					unityConfig,
 					(value) => (progress = value)
 				);
 
